@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>python | 黄小轩的技术专栏</title>
+  <title>Python | 黄小轩的技术专栏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Python">
+  <meta name="description" content="Pyqt Designer🧱 Layouts（布局）用于组织控件的摆放位置和大小，推荐使用，不然拖放控件时排版很难调。  控件作用:Vertical Layout	垂直排列控件  Horizontal Layout	水平排列控件  Grid Layout	表格网格状排列（像 Excel）  Form Layout	表单排列，左边是标签，右边是输入框  🪟 Spacers（间隔）用于撑开控件或布">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python">
+<meta property="og:title" content="Python">
 <meta property="og:url" content="http://jackfrued.top/2025/05/03/python/index.html">
 <meta property="og:site_name" content="黄小轩的技术专栏">
-<meta property="og:description" content="Python">
+<meta property="og:description" content="Pyqt Designer🧱 Layouts（布局）用于组织控件的摆放位置和大小，推荐使用，不然拖放控件时排版很难调。  控件作用:Vertical Layout	垂直排列控件  Horizontal Layout	水平排列控件  Grid Layout	表格网格状排列（像 Excel）  Form Layout	表单排列，左边是标签，右边是输入框  🪟 Spacers（间隔）用于撑开控件或布">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-05-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-03T12:30:10.364Z">
+<meta property="article:modified_time" content="2025-05-03T12:57:25.965Z">
 <meta property="article:author" content="黄小轩">
 <meta name="twitter:card" content="summary">
   
@@ -95,7 +95,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      python
+      Python
     </h1>
   
 
@@ -103,11 +103,73 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2>
+        <h2 id="Pyqt-Designer"><a href="#Pyqt-Designer" class="headerlink" title="Pyqt Designer"></a>Pyqt Designer</h2><h3 id="🧱-Layouts（布局）"><a href="#🧱-Layouts（布局）" class="headerlink" title="🧱 Layouts（布局）"></a>🧱 Layouts（布局）</h3><pre><code>用于组织控件的摆放位置和大小，推荐使用，不然拖放控件时排版很难调。
+</code></pre>
+<h4 id="控件作用"><a href="#控件作用" class="headerlink" title="控件作用:"></a>控件作用:</h4><pre><code>Vertical Layout	垂直排列控件 
+Horizontal Layout	水平排列控件 
+Grid Layout	表格网格状排列（像 Excel） 
+Form Layout	表单排列，左边是标签，右边是输入框
+</code></pre>
+<h3 id="🪟-Spacers（间隔）"><a href="#🪟-Spacers（间隔）" class="headerlink" title="🪟 Spacers（间隔）"></a>🪟 Spacers（间隔）</h3><pre><code>用于撑开控件或布局空隙：
+</code></pre>
+<h4 id="控件作用-1"><a href="#控件作用-1" class="headerlink" title="控件作用:"></a>控件作用:</h4><pre><code> Horizontal Spacer	水平方向填充空白
+ Vertical Spacer	垂直方向填充空白
+</code></pre>
+<h3 id="🔘-Buttons（按钮类控件）"><a href="#🔘-Buttons（按钮类控件）" class="headerlink" title="🔘 Buttons（按钮类控件）"></a>🔘 Buttons（按钮类控件）</h3><pre><code>触发操作用的控件：
+</code></pre>
+<h4 id="控件作用-2"><a href="#控件作用-2" class="headerlink" title="控件作用"></a>控件作用</h4><pre><code>Push Button	普通按钮，最常用 ✅
+Tool Button	用于工具栏的小按钮
+Radio Button	单选按钮（多项中只能选一个）
+Check Box	复选框（可多选） ✅
+Command Link Button	像超链接样式的按钮
+Dialog Button Box	OK/Cancel 等对话按钮组合，用于标准对话框
+</code></pre>
+<h3 id="📄-Item-Views（基于模型的数据视图）"><a href="#📄-Item-Views（基于模型的数据视图）" class="headerlink" title="📄 Item Views（基于模型的数据视图）"></a>📄 Item Views（基于模型的数据视图）</h3><pre><code>用于显示数据表/列表，需配合 model 使用，适合高级用法：
+</code></pre>
+<h4 id="控件作用-3"><a href="#控件作用-3" class="headerlink" title="控件作用"></a>控件作用</h4><pre><code>List View	显示数据列表（模型驱动）
+Tree View	显示树状数据结构（如文件夹）
+Table View	表格显示（高级版）
+Column View	栏式导航（不常用）
+Undo View	显示撤销命令栈
+</code></pre>
+<h3 id="📋-Item-Widgets（项目控件）"><a href="#📋-Item-Widgets（项目控件）" class="headerlink" title="📋 Item Widgets（项目控件）"></a>📋 Item Widgets（项目控件）</h3><pre><code>与上面类似，但更适合初学者，直接使用：
+</code></pre>
+<h4 id="控件作用-4"><a href="#控件作用-4" class="headerlink" title="控件作用"></a>控件作用</h4><pre><code>List Widget	列表控件（可以直接添加条目） ✅
+Tree Widget	树形控件（如文件树） ✅
+Table Widget	表格控件 ✅
+</code></pre>
+<h3 id="🧱-Containers（容器类）"><a href="#🧱-Containers（容器类）" class="headerlink" title="🧱 Containers（容器类）"></a>🧱 Containers（容器类）</h3><pre><code>可以包含别的控件的“框”：
+</code></pre>
+<h4 id="控件作用-5"><a href="#控件作用-5" class="headerlink" title="控件作用"></a>控件作用</h4><pre><code>Group Box	分组框，可带标题 ✅
+Scroll Area	滚动容器，内容可滚动
+Tool Box	折叠式工具栏面板（像分类目录）
+Tab Widget	选项卡面板（像网页标签页） ✅
+Stacked Widget	堆叠控件，一次只显示一页（常用于切换界面）
+Frame	用于添加边框
+Widget	通用控件，可以塞其他控件
+MDI Area	多文档界面，嵌套多个子窗口
+Dock Widget	可拖拽停靠的面板（高级 UI）
+QAxWidget	用于嵌入 ActiveX 控件（极少用）
+</code></pre>
+<h3 id="✍️-Input-Widgets（输入控件）"><a href="#✍️-Input-Widgets（输入控件）" class="headerlink" title="✍️ Input Widgets（输入控件）"></a>✍️ Input Widgets（输入控件）</h3><pre><code>用户输入数据的常用控件：
+</code></pre>
+<h4 id="控件作用-6"><a href="#控件作用-6" class="headerlink" title="控件作用"></a>控件作用</h4><pre><code>Combo Box	下拉框（可选项） ✅
+Font Combo Box	字体选择框
+Line Edit	单行文本输入框 ✅
+Text Edit	多行富文本输入框
+Plain Text Edit	多行纯文本输入框
+Spin Box	数字输入框（加减按钮） ✅
+Double Spin Box	支持小数的 spin box
+Time Edit / Date Edit / DateTime Edit	时间/日期输入框 ✅
+Dial	圆盘样式调节器（不常用）
+Horizontal/Vertical Scroll Bar	滚动条
+Horizontal/Vertical Slider	滑动条（调音量那种） ✅
+</code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2025/05/03/python/" data-id="cma879orc00004kv7hlrr5yez" data-title="python" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://jackfrued.top/2025/05/03/python/" data-id="cma879orc00004kv7hlrr5yez" data-title="Python" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -166,7 +228,7 @@
           </li>
         
           <li>
-            <a href="/2025/05/03/python/">python</a>
+            <a href="/2025/05/03/python/">Python</a>
           </li>
         
       </ul>
