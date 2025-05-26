@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
   <link rel="icon" href="/img/fluid.png">
   
@@ -19,21 +19,21 @@
   <meta name="author" content="黄小轩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="📅 我的任务日历           选择一个日期                        添加            let selectedDate &#x3D; new Date().toISOString().split(&#39;T&#39;)[0];  const calendar &#x3D; new FullCalendar.Calendar(document.getElementById(&#39;">
+    <meta name="description" content="任务日历                    #calendar-container {       max-width: 1000px;       margin: 40px auto;       font-family: sans-serif;     }     h2, h3 {       text-align: right;       margin-right: 2">
 <meta property="og:type" content="website">
-<meta property="og:title" content="page.title">
+<meta property="og:title" content="任务清单">
 <meta property="og:url" content="http://jackfrued.top/todo/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="📅 我的任务日历           选择一个日期                        添加            let selectedDate &#x3D; new Date().toISOString().split(&#39;T&#39;)[0];  const calendar &#x3D; new FullCalendar.Calendar(document.getElementById(&#39;">
+<meta property="og:description" content="任务日历                    #calendar-container {       max-width: 1000px;       margin: 40px auto;       font-family: sans-serif;     }     h2, h3 {       text-align: right;       margin-right: 2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-05-19T09:25:41.037Z">
-<meta property="article:modified_time" content="2025-05-19T09:25:41.037Z">
+<meta property="article:published_time" content="2025-05-26T08:36:25.000Z">
+<meta property="article:modified_time" content="2025-05-26T08:38:41.991Z">
 <meta property="article:author" content="黄小轩">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>page.title - </title>
+  <title>任务清单 - </title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -110,7 +110,11 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
+                                  
+                      
+                        <i class="iconfont icon-home-fill"></i>
+                      
+                    
                 <span>首页</span>
               </a>
             </li>
@@ -122,7 +126,11 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
+                                  
+                      
+                        <i class="iconfont icon-archive-fill"></i>
+                      
+                    
                 <span>归档</span>
               </a>
             </li>
@@ -134,7 +142,11 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
+                                  
+                      
+                        <i class="iconfont icon-category-fill"></i>
+                      
+                    
                 <span>分类</span>
               </a>
             </li>
@@ -146,7 +158,11 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
+                                  
+                      
+                        <i class="iconfont icon-tags-fill"></i>
+                      
+                    
                 <span>标签</span>
               </a>
             </li>
@@ -158,7 +174,11 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
+                                  
+                      
+                        <i class="iconfont icon-user-fill"></i>
+                      
+                    
                 <span>关于</span>
               </a>
             </li>
@@ -170,7 +190,11 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/todo/" target="_self">
-                <i class="iconfont icon-calendar"></i>
+                                  
+                      
+                        <i class="fas fa-calendar-check"></i>
+                      
+                    
                 <span>todo</span>
               </a>
             </li>
@@ -205,7 +229,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="page.title"></span>
+            <span id="subtitle" data-typed-text="任务清单"></span>
           
         </div>
 
@@ -233,103 +257,156 @@
                 
 
 <article class="page-content">
-  <!-- 引入 FullCalendar CSS 和 JS（含中文） -->
-<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet' />
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/locales/zh-cn.global.min.js'></script>
+  <!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>任务日历</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/locales/zh-cn.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    #calendar-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      font-family: sans-serif;
+    }
+    h2, h3 {
+      text-align: right;
+      margin-right: 20px;
+    }
+.fc-daygrid-day-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 6px;
+  font-size: 14px;
+}
 
-<div id="calendar-container" style="max-width: 1000px; margin: 40px auto; font-family: sans-serif;">
-  <h2 style="text-align:center">📅 我的任务日历</h2>
-  <div id='calendar'></div>
-  <div id="task-panel" style="margin-top: 30px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #fafafa;">
-    <h3 id="selected-date-title">选择一个日期</h3>
-    <ul id="task-list" style="list-style: none; padding-left: 0;"></ul>
-    <div style="display: flex; gap: 10px; margin-top: 10px;">
-      <input type="text" id="new-task-input" placeholder="添加任务..."
-        style="flex: 1; padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
-      <button onclick="addTask()"
-        style="padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer;">添加</button>
-    </div>
+<p>.fc-daygrid-day-number {<br>    font-weight: bold;<br>    margin-left: auto;<br>}<br>.add-icon {<br>  color: #4CAF50;<br>  font-size: 16px;<br>  font-weight: bold;<br>  cursor: pointer;</p>
+<p>}</p>
+<p>.fc-event {<br>  border-radius: 8px;<br>  padding: 2px 6px;<br>  font-size: 13px;<br>  color: white;<br>  overflow: hidden;<br>  text-overflow: ellipsis;<br>  white-space: nowrap;<br>}</p>
+<p>  </style></p>
+</head>
+<body>
+  <div id="calendar-container">
+    <h2 style="text-align:right; margin-right: 20px;">📅 我的任务日历</h2>
+  <h3 style="text-align:right; margin-right: 20px;" id="month-title"></h3>
+    <div id="calendar"></div>
   </div>
-</div>
 
-<script>
-let selectedDate = new Date().toISOString().split('T')[0];
+  <script>
+    const calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+      locale: 'zh-cn',
+      initialView: 'dayGridMonth',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: '',
+        right: ''
+      },
+      datesSet: function () {
+        const currentDate = calendar.getDate();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() + 1;
+      document.getElementById('month-title').textContent = `${year}年${month}月`;
+  },
+     dayCellDidMount: function (arg) {
+        const topEl = arg.el.querySelector('.fc-daygrid-day-top');
+        if (!topEl) return;
 
-const calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
-  locale: 'zh-cn',
-  initialView: 'dayGridMonth',
-  headerToolbar: {
-    left: 'prev,next today',
-    center: 'title',
-    right: ''
+        const icon = document.createElement('span');
+        icon.className = 'add-icon';
+        icon.textContent = '+';
+
+        // ✅ 使用标准格式的日期字符串
+      const dateStr = arg.date.getFullYear() + '-' +
+                String(arg.date.getMonth() + 1).padStart(2, '0') + '-' +
+                String(arg.date.getDate()).padStart(2, '0');
+        icon.onclick = () => showTaskPopup(dateStr);
+
+        topEl.appendChild(icon);
   },
-  selectable: true,
-  dateClick: function (info) {
-    selectedDate = info.dateStr;
-    updateTaskPanel();
-  },
-  events: function(fetchInfo, successCallback) {
-    const events = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key.startsWith('task-')) {
-        const date = key.replace('task-', '');
-        const tasks = JSON.parse(localStorage.getItem(key));
-        tasks.forEach((task, idx) => {
-          events.push({
-            title: task.text,
-            start: date,
-            allDay: true,
-            color: task.done ? '#4CAF50' : '#3788d8'
-          });
+      events: function(fetchInfo, successCallback) {
+        const events = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key.startsWith('task-')) {
+            const date = key.replace('task-', '');
+            const tasks = JSON.parse(localStorage.getItem(key));
+            tasks.forEach((task, idx) => {
+              events.push({
+                title: task.text,
+                start: date,
+                allDay: true,
+                backgroundColor: task.done ? '#4CAF50' : '#3788d8',
+                extendedProps: {
+                  index: idx,
+                  done: task.done,
+                  dateStr: date
+                }
+              });
+            });
+          }
+        }
+        successCallback(events);
+      },
+      eventClick: function(info) {
+        const { dateStr, index } = info.event.extendedProps;
+        const key = 'task-' + dateStr;
+        const tasks = JSON.parse(localStorage.getItem(key) || '[]');
+        if (tasks[index]) {
+          tasks[index].done = !tasks[index].done;
+          localStorage.setItem(key, JSON.stringify(tasks));
+          calendar.refetchEvents();
+        }
+      },
+      eventDidMount: function(info) {
+        info.el.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          const { dateStr, index } = info.event.extendedProps;
+          const key = 'task-' + dateStr;
+          const tasks = JSON.parse(localStorage.getItem(key) || '[]');
+          if (confirm(`是否删除任务「${tasks[index].text}」？`)) {
+            tasks.splice(index, 1);
+            localStorage.setItem(key, JSON.stringify(tasks));
+            calendar.refetchEvents();
+          }
         });
       }
-    }
-    successCallback(events);
-  }
-});
+    });
 
-calendar.render();
-
-function updateTaskPanel() {
-  document.getElementById("selected-date-title").textContent = `📌 任务列表：${selectedDate}`;
-  const taskList = document.getElementById("task-list");
-  const tasks = JSON.parse(localStorage.getItem("task-" + selectedDate) || "[]");
-  taskList.innerHTML = "";
-  tasks.forEach((task, index) => {
-    const li = document.createElement("li");
-    li.style.margin = "6px 0";
-    li.innerHTML = `<label><input type='checkbox' ${task.done ? "checked" : ""} onchange='toggleTask(${index})'> ${task.text}</label>`;
-    taskList.appendChild(li);
-  });
+    calendar.render();
+  function showTaskPopup(dateStr) {
+    Swal.fire({
+      title: '任务',
+      input: 'text',
+      inputLabel: '任务名称',
+      inputPlaceholder: '请输入任务内容',
+      showCancelButton: true,
+      confirmButtonText: '添加'
+    }).then(result => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.querySelectorAll('.fc-daygrid-day-number').forEach(el => {
+          el.style.color = '#ffffff';
+        });
+      }
+           if (result.isConfirmed && result.value && result.value.trim()) {
+          const taskText = result.value.trim();
+          const key = 'task-' + dateStr;
+          const tasks = JSON.parse(localStorage.getItem(key) || '[]');
+          tasks.push({ text: taskText, done: false });
+          localStorage.setItem(key, JSON.stringify(tasks));
+          calendar.refetchEvents();
+          console.log(`✅ 任务已添加: ${taskText} 到 ${key}`);
+      } else {
+        console.log("未输入或取消");
+      }
+    });
 }
-
-function addTask() {
-  const input = document.getElementById("new-task-input");
-  const text = input.value.trim();
-  if (!text) return;
-  const key = "task-" + selectedDate;
-  const tasks = JSON.parse(localStorage.getItem(key) || "[]");
-  tasks.push({ text, done: false });
-  localStorage.setItem(key, JSON.stringify(tasks));
-  input.value = "";
-  updateTaskPanel();
-  calendar.refetchEvents();
-}
-
-function toggleTask(index) {
-  const key = "task-" + selectedDate;
-  const tasks = JSON.parse(localStorage.getItem(key) || "[]");
-  tasks[index].done = !tasks[index].done;
-  localStorage.setItem(key, JSON.stringify(tasks));
-  updateTaskPanel();
-  calendar.refetchEvents();
-}
-
-// 默认加载今天的任务
-updateTaskPanel();
-</script>
+  </script>
+</body>
+</html>
 
 
   
