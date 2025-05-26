@@ -19,15 +19,15 @@
   <meta name="author" content="黄小轩">
   <meta name="keywords" content="">
   
-    <meta name="description" content="任务日历                    #calendar-container {       max-width: 1000px;       margin: 40px auto;       font-family: sans-serif;     }     h2, h3 {       text-align: right;       margin-right: 2">
+    <meta name="description" content="📅 我的任务日历            #calendar-container {     max-width: 1000px;     margin: 40px auto;     font-family: sans-serif;   }   .fc-daygrid-day-number {     font-weight: bold;     margin-left: auto;   }">
 <meta property="og:type" content="website">
 <meta property="og:title" content="任务清单">
 <meta property="og:url" content="http://jackfrued.top/todo/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="任务日历                    #calendar-container {       max-width: 1000px;       margin: 40px auto;       font-family: sans-serif;     }     h2, h3 {       text-align: right;       margin-right: 2">
+<meta property="og:description" content="📅 我的任务日历            #calendar-container {     max-width: 1000px;     margin: 40px auto;     font-family: sans-serif;   }   .fc-daygrid-day-number {     font-weight: bold;     margin-left: auto;   }">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-05-26T08:36:25.000Z">
-<meta property="article:modified_time" content="2025-05-26T08:38:41.991Z">
+<meta property="article:published_time" content="2025-05-26T13:17:25.000Z">
+<meta property="article:modified_time" content="2025-05-26T13:17:39.837Z">
 <meta property="article:author" content="黄小轩">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -257,46 +257,44 @@
                 
 
 <article class="page-content">
-  <!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <title>任务日历</title>
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/locales/zh-cn.global.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <style>
-    #calendar-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      font-family: sans-serif;
-    }
-    h2, h3 {
-      text-align: right;
-      margin-right: 20px;
-    }
-.fc-daygrid-day-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2px 6px;
-  font-size: 14px;
-}
+  <h2 style="text-align:right; margin-right: 20px;">📅 我的任务日历</h2>
+<h3 style="text-align:right; margin-right: 20px;" id="month-title"></h3>
+<div id="calendar"></div>
 
-<p>.fc-daygrid-day-number {<br>    font-weight: bold;<br>    margin-left: auto;<br>}<br>.add-icon {<br>  color: #4CAF50;<br>  font-size: 16px;<br>  font-weight: bold;<br>  cursor: pointer;</p>
-<p>}</p>
-<p>.fc-event {<br>  border-radius: 8px;<br>  padding: 2px 6px;<br>  font-size: 13px;<br>  color: white;<br>  overflow: hidden;<br>  text-overflow: ellipsis;<br>  white-space: nowrap;<br>}</p>
-<p>  </style></p>
-</head>
-<body>
-  <div id="calendar-container">
-    <h2 style="text-align:right; margin-right: 20px;">📅 我的任务日历</h2>
-  <h3 style="text-align:right; margin-right: 20px;" id="month-title"></h3>
-    <div id="calendar"></div>
-  </div>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/locales/zh-cn.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <script>
+<style>
+  #calendar-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: sans-serif;
+  }
+  .fc-daygrid-day-number {
+    font-weight: bold;
+    margin-left: auto;
+  }
+  .add-icon {
+    color: #4CAF50;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .fc-event {
+    border-radius: 8px;
+    padding: 2px 6px;
+    font-size: 13px;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
     const calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
       locale: 'zh-cn',
       initialView: 'dayGridMonth',
@@ -309,24 +307,20 @@
         const currentDate = calendar.getDate();
         const year = currentDate.getFullYear();
         const month = currentDate.getMonth() + 1;
-      document.getElementById('month-title').textContent = `${year}年${month}月`;
-  },
-     dayCellDidMount: function (arg) {
+        document.getElementById('month-title').textContent = `${year}年${month}月`;
+      },
+      dayCellDidMount: function (arg) {
         const topEl = arg.el.querySelector('.fc-daygrid-day-top');
         if (!topEl) return;
-
         const icon = document.createElement('span');
         icon.className = 'add-icon';
         icon.textContent = '+';
-
-        // ✅ 使用标准格式的日期字符串
-      const dateStr = arg.date.getFullYear() + '-' +
-                String(arg.date.getMonth() + 1).padStart(2, '0') + '-' +
-                String(arg.date.getDate()).padStart(2, '0');
+        const dateStr = arg.date.getFullYear() + '-' +
+              String(arg.date.getMonth() + 1).padStart(2, '0') + '-' +
+              String(arg.date.getDate()).padStart(2, '0');
         icon.onclick = () => showTaskPopup(dateStr);
-
         topEl.appendChild(icon);
-  },
+      },
       events: function(fetchInfo, successCallback) {
         const events = [];
         for (let i = 0; i < localStorage.length; i++) {
@@ -377,36 +371,28 @@
     });
 
     calendar.render();
-  function showTaskPopup(dateStr) {
-    Swal.fire({
-      title: '任务',
-      input: 'text',
-      inputLabel: '任务名称',
-      inputPlaceholder: '请输入任务内容',
-      showCancelButton: true,
-      confirmButtonText: '添加'
-    }).then(result => {
-      if (document.documentElement.classList.contains('dark')) {
-        document.querySelectorAll('.fc-daygrid-day-number').forEach(el => {
-          el.style.color = '#ffffff';
-        });
-      }
-           if (result.isConfirmed && result.value && result.value.trim()) {
+
+    function showTaskPopup(dateStr) {
+      Swal.fire({
+        title: '任务',
+        input: 'text',
+        inputLabel: '任务名称',
+        inputPlaceholder: '请输入任务内容',
+        showCancelButton: true,
+        confirmButtonText: '添加'
+      }).then(result => {
+        if (result.isConfirmed && result.value && result.value.trim()) {
           const taskText = result.value.trim();
           const key = 'task-' + dateStr;
           const tasks = JSON.parse(localStorage.getItem(key) || '[]');
           tasks.push({ text: taskText, done: false });
           localStorage.setItem(key, JSON.stringify(tasks));
           calendar.refetchEvents();
-          console.log(`✅ 任务已添加: ${taskText} 到 ${key}`);
-      } else {
-        console.log("未输入或取消");
-      }
-    });
-}
-  </script>
-</body>
-</html>
+        }
+      });
+    }
+  });
+</script>
 
 
   
